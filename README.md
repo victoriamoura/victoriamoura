@@ -1,5 +1,5 @@
-# 👋 Hello! Welcome to my Github profile.
-## My name is Victoria and my nickname is "Vic"!
+## 👋 Hello! Welcome to my Github profile.
+### My name is Victoria and my nickname is "Vic"!
 
 
 
@@ -9,4 +9,6 @@
 <img width="380em" height="180em" src="https://github-readme-stats.vercel.app/api?username=victoriabym&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
 </div>
 
+<!--
 ![Snake animation](https://github.com/victoriabym/victoriabym/blob/output/github-contribution-grid-snake.svg)
+-->
