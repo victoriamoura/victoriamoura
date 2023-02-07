@@ -20,8 +20,7 @@ I do my best to keep my Linkedin updated, so you can search for more information
 Thanks! 🚀
 #WomanInTech #CodeLikeAGirl
   
-<div style="display: inline_block"><br>
-</div>
+<div style="display: inline_block"><br></div>
 
 <div> 
   <a href="https://instagram.com/victoria.bym" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
@@ -30,9 +29,10 @@ Thanks! 🚀
 </div>
 
 <div>
-<a href="https://github.com/victoriabym">
-<img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=victoriabym&layout=compact&langs_count=7&theme=dracula"/>
-<img width="400" src="https://github-readme-stats.vercel.app/api?username=victoriabym&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/> <br>
+  <a href="https://github.com/victoriabym">
+  <img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=victoriabym&layout=compact&langs_count=7&theme=dracula"/>
+  <img width="400" src="https://github-readme-stats.vercel.app/api?username=victoriabym&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
+  <br>
 </div>  
   
   ###
