@@ -23,15 +23,15 @@ Thanks! 🚀
 <div style="display: inline_block"><br></div>
 
 <div> 
-  <a href="https://instagram.com/victoria.bym" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+  <a href="https://instagram.com/victoriamoura.tech" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
   <a href = "mailto:victoria@bym.digital"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-  <a href="https://www.linkedin.com/in/victoriabym" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
+  <a href="https://www.linkedin.com/in/victoria-moura" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> <br>
 </div>
 
 <div>
-  <a href="https://github.com/victoriabym">
-  <img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=victoriabym&layout=compact&langs_count=7&theme=dracula"/>
-  <img width="400" src="https://github-readme-stats.vercel.app/api?username=victoriabym&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
+  <a href="https://github.com/victoriamoura">
+  <img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=victoriamoura&layout=compact&langs_count=7&theme=dracula"/>
+  <img width="400" src="https://github-readme-stats.vercel.app/api?username=victoriamoura&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
   <br>
 </div>  
   
