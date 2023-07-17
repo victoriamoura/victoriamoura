@@ -30,9 +30,9 @@ Thanks! 🚀
 
 <div>
   <a href="https://github.com/victoriamoura">
-  <img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=victoriamoura&layout=compact&langs_count=7&theme=dracula"/>
-  <img width="400" src="https://github-readme-stats.vercel.app/api?username=victoriamoura&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
-  <br>
+  <img width="100%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=victoriamoura&layout=compact&langs_count=7&theme=dracula"/>
+  </a>
+    <br>
 </div>  
   
   ###
