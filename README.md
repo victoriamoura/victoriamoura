@@ -1,5 +1,5 @@
 
-**shopify • frontend • ecommerce • wordpress • surfer • uncommon geek • dogs mom**
+**shopify • frontend • ecommerce • wordpress • surfer • runner • uncommon geek • dogs mom**
 
 ## Welcome to my Github! 
 
@@ -7,7 +7,7 @@ Hello, how are you? 😊
 
 First of all, glad you're here! I'm do happy to have you on my profile! Let me introduce myself a little.... 🙋‍♀️
 
-My name is Victoria, Vic for friends! I'm 29 years old, I'm a Front End Software Developer. I work in technology since 2012, the first year in infrastructure and the rest in development. Now a days I'm Shopify Develoer at @sallve. 💻
+My name is Victoria, Vic for friends! I'm 30 years old, I'm a Front End Software Developer. I work in technology since 2012, the first year in infrastructure and the rest in development. Now a days I'm Shopify Develoer at @sallve. 💻
 
 I worked in large marketing and advertising agencies in Espírito Santo (BRA), being part of web and technology teams, where besides the growth in the area I also had contact with various tools and methodologies. 🕹
 
@@ -36,12 +36,12 @@ Thanks! 🚀
     <br>
 </div>  
   
-  ###
+  ### 
 
 <div style="display: inline_block"><br>
-  <img align="center" alt="Vic-HTML" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
-  <img align="center" alt="Vic-CSS" height="30" width="40"src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
-  <img align="center" alt="Vic-Js" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+  <img align="center" alt="Vic-HTML" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+  <img align="center" alt="Vic-CSS" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+  <img align="center" alt="Vic-Js" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
   <img align="center" alt="Vic-Jquery" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-plain-wordmark.svg" />
   <img align="center" alt="Vic-SCSS" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
   <img align="center" alt="Vic-Gulp" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gulp/gulp-plain.svg" />
@@ -49,10 +49,10 @@ Thanks! 🚀
   <img align="center" alt="Vic-Wordpress" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" />
   <img align="center" alt="Vic-Code" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />   
   <img align="center" alt="Vic-Slack" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" />
-  <img align="center" alt="Vic-Jira" height="30" width="40"src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" />
+  <img align="center" alt="Vic-Jira" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" />
 </div>
 
-  ##
+  ## 
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
