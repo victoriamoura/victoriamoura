@@ -1,7 +1,7 @@
 
 **shopify • frontend • ecommerce • wordpress • surfer • runner • uncommon geek • dogs mom**
 
-## Welcome to my Github! 
+## Welcome, it's a pleasure to have you here!
 
 Hello, how are you? 😊
 
