@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Converter - Schema to Locales</title>
+</head>
+<body>
+    <h1>Shopify Converter - Schema to Locales</h1>
+    <p>Insira o schema de uma section do Shopify e clique em converter para gerar o novo schema e os novos locales.</p>
+    <textarea id="jsonSchemaInput" rows="10" cols="50"></textarea>
+    <button onclick="converterJSON()">Converter</button>
+
+    <div id="result"></div>
+    <h2>Novo schema</h2>
+    <div id="result-schema"></div>
+
+    <h2>Novo locales</h2>
+    <p>Adicione o novo schema no arquivo locales e preencha com os textos faltantes:</p>
+    <div id="result-locales"></div>
+
+    <script src="converter.js"></script>
+</body>
+</html>
