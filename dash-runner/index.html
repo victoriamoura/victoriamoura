@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashrunner</title>
+  </head>
+  <body>
+    <h1>Dashrunner</h1>
+    <div class="js-result"></div>
+
+    <form asp-action="Index" method="get">
+      <input type="text" id="cId" value="@ViewBag.cId" />
+      <input type="text" id="cSec" value="@ViewBag.cSec" />
+      <input type="text" id="rT" value="@ViewBag.rT" />
+      <input type="text" id="code" value="@ViewBag.code" />
+      <input type="text" id="test" />
+    </form>
+    <input type="button" onclick="Authorize()" value="ReAuthorise" />
+    <input type="button" onclick="codeExchange()" value="Get Activities" />
+    <nav class="navbar navbar-default"></nav>
+    <div class="col-md-3"></div>
+    <div class="col-md-6 well">
+      <hr style="border-top: 1px dotted #ccc" />
+      <div class="col-md-8">
+        <table class="table table-bordered">
+          <thead class="alert-info">
+            <tr>
+              <th>Activity Name</th>
+              <th>Distance</th>
+              <th>Heart Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="table"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script>
+    // api strava: Segredo do cliente
+    // var access_token = 'bcfd72d3059ceb191a54a509e663808328f0bb05';
+    // api strava: token de acesso
+    var access_token = '4e951019d223f318ada6c932274b043436f4322c';
+
+    //reAuthorize Click
+    function Authorize() {
+      document.location.href =
+        'https://www.strava.com/oauth/authorize?client_id=127877&redirect_uri=127.0.0.1:5500/dashrunner/index.html&response_type=code&scope=activity:read_all';
+    }
+
+    const codeExchangeLink = `https://www.strava.com/api/v3/oauth/token`;
+    function codeExchange() {
+      fetch(codeExchangeLink, {
+        method: 'post',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          client_id: '@ViewBag.cId',
+          client_secret: '@ViewBag.cSec',
+          code: '@ViewBag.code',
+          //need to do this to get a new refresh token that 'reads all' and issues a new Access Token - refer to comments below
+          grant_type: 'authorization_code'
+        })
+      })
+        .then((res) => res.json())
+        .then((res) => getActivities(res));
+    }
+
+    //  getActivities
+    const auth_link = 'https://www.strava.com/oauth/token';
+
+    async function getActivities(res) {
+      const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}`;
+      await fetch(activities_link)
+        .then((res) => res.json())
+        .then((data) => populateTable(data));
+    }
+
+    function populateTable(data) {
+      for (var i = 0; i < data.length; i++) {
+        var table = '';
+
+        for (var i in data) {
+          table += '<tr>';
+          table +=
+            '<td>' +
+            data[i].name +
+            '</td>' +
+            '<td>' +
+            data[i].distance +
+            '</td>' +
+            '<td>' +
+            data[i].average_heartrate +
+            '</td>' +
+            '<td>' +
+            data[i].moving_time +
+            '</td>';
+          table += '</tr>';
+        }
+        document.getElementById('table').innerHTML = table;
+      }
+    }
+  </script>
+</html>
