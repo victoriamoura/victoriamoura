@@ -1,11 +1,11 @@
 header {
   grid-area: 1 / 1 / 2 / 2;
+  z-index: 2;
 
   @media (max-width: 880px) {
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 2;
     background: $branco;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
@@ -18,7 +18,6 @@ header {
 
     @media (max-width: 880px) {
       justify-content: space-between;
-
     }
 
     .logo {
@@ -32,6 +31,12 @@ header {
 
         100% {
           left: 170px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        svg {
+          width: 180px;
         }
       }
 
@@ -61,24 +66,24 @@ header {
       width: 32px;
       position: relative;
 
+      @media (max-width: 880px) {
+        display: block;
+      }
+
       .js-cart-bubble {
         position: absolute;
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         border-radius: 50%;
         background: #000;
         color: #fff;
-        font-size: 12px;
+        font-size: 10px;
         font-family: $fonte-2;
-        right: 0;
+        right: -6px;
         top: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-
-      @media (max-width: 880px) {
-        display: block;
       }
     }
   }
@@ -96,6 +101,10 @@ header {
       text-transform: uppercase;
       color: $branco;
       text-align: center;
+
+      @media (max-width: 480px) {
+        font-size: 10px;
+      }
     }
   }
 }
