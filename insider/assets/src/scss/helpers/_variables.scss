@@ -2,8 +2,8 @@
    ============================= */
 
 /* gray scale */
-$branco: #fff;
-$preto: #000;
+$branco: #ffffff;
+$preto: #000000;
 $cor-01: tint($preto, 0%);
 $cor-02: tint($preto, 20%);
 $cor-03: tint($preto, 40%);
@@ -12,8 +12,8 @@ $cor-05: tint($preto, 80%);
 $cor-06: tint($preto, 100%);
 
 /* colored */
-$cor-1: #2A378D;
-$cor-2: #475467;
+$cor-1: #1489a3;
+$cor-2: #A20016;
 $cor-3: #101828;
 $cor-4: #E1ECFF;
 $cor-5: #6941C6;
@@ -22,10 +22,12 @@ $cor-7: #F9FAFB;
 $cor-8: #373ED0;
 $cor-texto-1: #545454;
 
+
 /* FONTS
    ============================= */
 
-$fonte-1: 'Inter', sans-serif;
+$fonte-1: 'manrole', sans-serif;
+$fonte-2: 'formular', sans-serif;
 
 /* BREAKPOINTS
    ============================= */
@@ -62,11 +64,3 @@ $mobile-s: max-width 359px;
 
 /* another */
 $layout: 1280px;
-
-/*
-$mobile: max-width 480px;
-$mobile_grande: max-width 768px;
-$tablet_grande: max-width 1024px;
-$wide: max-width 1200px;
-$wide_grande: max-width 1440px;
-*/

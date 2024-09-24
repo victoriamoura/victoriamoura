@@ -1,0 +1,22 @@
+.btn {
+  font-family: $fonte-2;
+  background-color: $preto;
+  border: 0;
+  color: $branco;
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1;
+  transition: all .25s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $cor-2;
+  }
+}

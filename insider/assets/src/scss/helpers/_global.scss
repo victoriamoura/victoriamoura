@@ -1,59 +1,62 @@
 /* GLOBAL SETTINGS
    ============================= */
 
+.title {
+  width: 100%;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: $fonte-2;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.subtitle {
+  width: 100%;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: $fonte-2;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
 .layout {
-    width: $layout;
-    max-width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    padding: 0 15px;
+  width: $layout;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 0 15px;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 499;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 499;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
 
-    &.active {
-        opacity: 1;
-        visibility: visible;
-    }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .hidden,
 .hide,
 .esconder,
-.oculto {
-    display: none;
-}
-
-.desktop {
-    @include breakpoint($tablet-x) {
-        display: none !important;
-    }
-}
-
-.tablet {
-    display: none !important;
-
-    @include breakpoint($tablet-x) {
-        display: inline-block !important;
-    }
-}
-
-.mobile {
-    display: none !important;
-
-    @include breakpoint($tablet-s) {
-        display: inline-block !important;
-    }
+.oculto,
+.visibility-hidden {
+  display: none !important;
 }

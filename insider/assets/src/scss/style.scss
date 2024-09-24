@@ -5,7 +5,7 @@
     > Client:   Insider Store
     > Author:   Victoria Moura
     > E-mail:   victoriamoura@gmail.com
-    > URL:      www.victoriamoura.com
+    > URL:      www.victoriamoura.com.br
 
 ======================================================= */
 
@@ -20,18 +20,10 @@
 @import "helpers/global";
 
 /* ===============
-   SCSS FONTS 
-   =============== */
-// @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-// @import "fonts/fontawesome/fontawesome";
-
-/* ===============
    SCSS COMPONENTS 
    =============== */
-// @import "components/buttons";
-// @import "components/ckeditor";
-// @import "components/forms";
-// @import "components/modals";
+@import "components/buttons";
+@import "components/modals";
 // @import "components/tags";
 
 /* ===============
@@ -44,7 +36,6 @@
    =============== */
 @import "subtemplates/footer";
 @import "subtemplates/header";
-// @import "subtemplates/parts";
 
 /* ===============
    SCSS TEMPLATES 
