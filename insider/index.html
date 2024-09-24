@@ -1,0 +1,85 @@
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insider Test</title>
+  <link rel="stylesheet" href="./assets/dist/css/style.css">
+  <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css">
+  <link rel="stylesheet" href="./assets/fonts/formular/stylesheet.css">
+</head>
+
+<body>
+  <header>
+    <h1>
+      <span class="visibility-hidden">Insider Store</span>
+      <svg width="237" height="36" viewBox="0 0 237 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.5638 0H0.610229V36H10.5638V0Z" fill="black" />
+        <path d="M108.724 0H98.77V36H108.724V0Z" fill="black" />
+        <path d="M56.0951 0V23.0366H85.9588V25.9283H56.0951V36H95.9109V12.9634H66.0502V10.0717H95.9109V0H56.0951Z"
+          fill="black" />
+        <path
+          d="M154.256 0V35.841V36H194.072V25.9283H164.208V23.0366H194.072V12.9634H164.208V10.0717H194.072V0H154.256Z"
+          fill="black" />
+        <path d="M13.4215 0V36H23.3766V9.95583H43.2837V36H53.2388V0H13.4215Z" fill="black" />
+        <path
+          d="M141.444 25.9268H121.535V10.0717H141.444V25.9268ZM141.828 0H111.581V36H141.828C147.112 36 151.397 31.6655 151.397 26.3176V9.68242C151.397 4.33599 147.113 0 141.828 0Z"
+          fill="black" />
+        <path
+          d="M206.884 10.0732H226.792V12.9649H206.884V10.0732ZM236.746 13.3527V9.68093C236.746 4.33599 232.462 0 227.177 0H196.93V36H206.882V23.0351H221.814L226.357 36H236.746L231.743 21.8642C234.724 20.2237 236.746 17.0274 236.746 13.3527Z"
+          fill="black" />
+      </svg>
+    </h1>
+    <div class="js-open-cart">
+      <?xml version="1.0" ?>
+      <svg width="32px" height="32px" viewBox="0 0 12 12" enable-background="new 0 0 12 12" id="Слой_1" version="1.1"
+        xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g>
+          <rect fill="#000" height="1" width="11" x="0.5" y="5.5" />
+          <rect fill="#000" height="1" width="11" x="0.5" y="2.5" />
+          <rect fill="#000" height="1" width="11" x="0.5" y="8.5" />
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <main class="content">
+    <collection-grid class="collection js-collection" role="article">
+    </collection-grid>
+    <div class="js-loading-products loading-products">
+      <span class="loader"></span>
+    </div>
+  </main>
+
+  <cart-side class="cart js-cart" role="aside">
+    <button class="js-cart-close" type="button" aria-label="Fechar">X</button>
+    <div class="cart-content js-cart-content">
+      <h2>carrinho</h2>
+    </div>
+  </cart-side>
+  <footer>
+    <p>
+      <a href="https://www.insiderstore.com.br/">© Insider</a><br />
+      CNPJ 26.520.188/0001-92 - Insider Comércio e Confecção de Peças do Vestuário Ltda.
+    </p>
+  </footer>
+
+  <div class="modal-alert js-modal-order-success" hidden>
+    <div class="modal-alert__content">
+      <h2>Compra realizada!</h2>
+      <p>Em breve enviaremos seu pedido!</p>
+      <button>fechar</button>
+    </div>
+  </div>
+
+  <div class="modal-alert js-modal-order-success" hidden>
+    <div class="modal-alert__content">
+      <h2>Ops! Algo deu errado :(</h2>
+      <p>Que tal revisar o carrinho e tentar novamente?!</p>
+      <button>fechar</button>
+    </div>
+  </div>
+  <script src="./assets/src/js/index.js" defer></script>
+</body>
+
+</html>

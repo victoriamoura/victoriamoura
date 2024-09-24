@@ -1,0 +1,52 @@
+@charset 'UTF-8';
+/* 
+    > Document: Rocketplate
+    > Version:  1.0.0
+    > Client:   Insider Store
+    > Author:   Victoria Moura
+    > E-mail:   victoriamoura@gmail.com
+    > URL:      www.victoriamoura.com
+
+======================================================= */
+
+/* ===============
+    SCSS HELPERS 
+    =============== */
+@import "helpers/bourbon";
+@import "helpers/breakpoint";
+@import "helpers/mixins";
+@import "helpers/resets";
+@import "helpers/variables"; 
+@import "helpers/global";
+
+/* ===============
+   SCSS FONTS 
+   =============== */
+// @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+// @import "fonts/fontawesome/fontawesome";
+
+/* ===============
+   SCSS COMPONENTS 
+   =============== */
+// @import "components/buttons";
+// @import "components/ckeditor";
+// @import "components/forms";
+// @import "components/modals";
+// @import "components/tags";
+
+/* ===============
+   SCSS PLUGINS 
+   =============== */
+
+
+/* ===============
+   SCSS SUBTEMPLATES 
+   =============== */
+@import "subtemplates/footer";
+@import "subtemplates/header";
+// @import "subtemplates/parts";
+
+/* ===============
+   SCSS TEMPLATES 
+   =============== */
+@import "templates/checkout";

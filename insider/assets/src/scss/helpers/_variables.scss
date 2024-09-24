@@ -1,0 +1,72 @@
+/* COLORS
+   ============================= */
+
+/* gray scale */
+$branco: #fff;
+$preto: #000;
+$cor-01: tint($preto, 0%);
+$cor-02: tint($preto, 20%);
+$cor-03: tint($preto, 40%);
+$cor-04: tint($preto, 60%);
+$cor-05: tint($preto, 80%);
+$cor-06: tint($preto, 100%);
+
+/* colored */
+$cor-1: #2A378D;
+$cor-2: #475467;
+$cor-3: #101828;
+$cor-4: #E1ECFF;
+$cor-5: #6941C6;
+$cor-6: #efefef;
+$cor-7: #F9FAFB;
+$cor-8: #373ED0;
+$cor-texto-1: #545454;
+
+/* FONTS
+   ============================= */
+
+$fonte-1: 'Inter', sans-serif;
+
+/* BREAKPOINTS
+   ============================= */
+
+/* desktop */
+$desktop-x: max-width 1919px;
+/* -1920px */
+$desktop-l: max-width 1599px;
+/* -1600px */
+$desktop-m: max-width 1439px;
+/* -1440px */
+$desktop-s: max-width 1365px;
+/* -1366px */
+
+/* tablet */
+$tablet-x: max-width 1279px;
+/* -1280px */
+$tablet-l: max-width 1023px;
+/* -1024px */
+$tablet-m: max-width 959px;
+/* -960px */
+$tablet-s: max-width 767px;
+/* -768px */
+
+/* mobile */
+$mobile-x: max-width 719px;
+/* -720px */
+$mobile-l: max-width 413px;
+/* -414px */
+$mobile-m: max-width 374px;
+/* -375px */
+$mobile-s: max-width 359px;
+/* -360px */
+
+/* another */
+$layout: 1280px;
+
+/*
+$mobile: max-width 480px;
+$mobile_grande: max-width 768px;
+$tablet_grande: max-width 1024px;
+$wide: max-width 1200px;
+$wide_grande: max-width 1440px;
+*/
