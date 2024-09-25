@@ -37,7 +37,15 @@
     }
 
     p {
+      font-family: $fonte-2;
       margin: 12px 0 24px;
+      line-height: 1.3;
+
+      a {
+        font-family: $fonte-1;
+        font-weight: bold;
+        color: $cor-1;
+      }
     }
 
     button {

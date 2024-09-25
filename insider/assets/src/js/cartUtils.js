@@ -165,7 +165,7 @@ export async function collectionRecovery(boxLoadingPage) {
         const isLastUnits = inventory < 15;
         product.tag = isSoldOut ? 'sold-out' : isLastUnits ? 'last-units' : 'visibility-hidden';
         product.tagText = isSoldOut ? 'Volta logo' : isLastUnits ? 'últimas unidades' : '';
-        product.available = isLastUnits || (!isSoldOut);
+        product.available = !isSoldOut;
         product.price = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.sku.price);
         pagePopulate(product);
       });
