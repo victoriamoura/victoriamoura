@@ -165,7 +165,7 @@ export async function collectionRecovery(boxLoadingPage) {
         const isLastUnits = inventory < 15;
         product.tag = isSoldOut ? 'sold-out' : isLastUnits ? 'last-units' : 'visibility-hidden';
         product.tagText = isSoldOut ? 'Volta logo' : isLastUnits ? 'últimas unidades' : '';
-        product.available = !isSoldOut;
+        product.available = isSoldOut ? 'disabled' : 'data-available';
         product.price = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.sku.price);
         pagePopulate(product);
       });
@@ -193,9 +193,9 @@ export function pagePopulate(product) {
       data-name="${product.name}"
       data-price="${product.sku.price}"
       data-image="${product.image_url}"
-      data-available="${product.available}"
       class="collection__product-module"
       role="listitem"
+      ${product.available}
     >
       <picture class="collection__product-module__picture">
         <div class="tag js-tag ${product.tag}">${product.tagText}</div>
@@ -206,7 +206,8 @@ export function pagePopulate(product) {
       <button
         type="button"
         class="btn collection__product-module__button js-add-to-cart"
-      >comprar
+        ${product.available}
+        >comprar
         <svg class="loading-spinner visibility-hidden" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z" />
         </svg>

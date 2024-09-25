@@ -980,7 +980,7 @@ body .content .collection__product-module .btn .loading-spinner {
 body .content .collection__product-module .btn .loading-spinner path {
   fill: #ffffff;
 }
-body .content .collection__product-module[data-available=false] .btn {
+body .content .collection__product-module[disabled] .btn {
   background-color: #cccccc;
   color: #000000;
   cursor: not-allowed;

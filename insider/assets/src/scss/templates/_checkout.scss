@@ -513,7 +513,7 @@ body {
             }
           }
         }
-        &[data-available='false'] {
+        &[disabled] {
           .btn {
             background-color: $cor-05;
             color: $preto;
