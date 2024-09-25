@@ -53,7 +53,7 @@ class CollectionGrid extends HTMLElement {
           <div class="tag js-tag ${product.tag}">últimas unidades</div>
           <img class="js-product-image-elem" src="${product.image_url}&width=317" width="317px" alt="${product.name}" data-image-full="${product.image_url}">
         </picture>
-        <p class="collection__product-module__title js-product-title">${product.name}</p>
+        <h4 class="collection__product-module__title js-product-title">${product.name}</h4>
         <p class="collection__product-module__price js-product-price">${product.price}</p>
         <button
           type="button"
