@@ -60,3 +60,14 @@
 .visibility-hidden {
   display: none !important;
 }
+
+.loading-spinner {
+  transform-origin:center;
+  animation: spin .75s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform:rotate(360deg)
+  }
+}

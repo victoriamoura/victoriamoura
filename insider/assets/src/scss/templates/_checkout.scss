@@ -141,11 +141,11 @@ body {
               display: inline-block !important;
               background: $cor-1;
               color: $branco;
-              font-weight: 800;
+              font-family: $fonte-2;
               line-height: 1;
-              font-size: 12px;
+              font-size: 9px;
               letter-spacing: 0.6px;
-              padding: 5px 10px 3px 10px;
+              padding: 7px 10px 5px 10px;
               border-radius: 4px;
               height: max-content;
             }
@@ -166,6 +166,7 @@ body {
             text-transform: uppercase;
             text-decoration: underline;
             color: $preto;
+            z-index: 2;
           }
 
           &__picture {
@@ -196,9 +197,20 @@ body {
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: space-between;
+            position: relative;
 
             @media (max-width: 480px) {
               width: calc(100% - 66px);
+            }
+
+            .loading-spinner {
+              position: absolute;
+              left: 100px;
+              bottom: 10px;
+              
+              path {
+                fill: $cor-1;
+              }
             }
 
             &__name {
@@ -440,18 +452,25 @@ body {
           .tag {
             position: absolute;
             right: 8px;
-            top: 8;
+            top: 8px;
             background: transparent;
-            color: $cor-2;
             border-radius: 4px;
-            border: 1px solid $cor-2;
-            padding: 5px 10px 3px 10px;
+            padding: 8px 10px 6px 10px;
             font-size: 9px;
             font-weight: 500;
             text-transform: uppercase;
             line-height: 1;
             z-index: 1;
             font-family: $fonte-2;
+
+            &.sold-out {
+              color: $preto;
+              border: 1px solid $preto;
+            }
+            &.last-units {
+              color: $cor-2;
+              border: 1px solid $cor-2;
+            }
           }
 
           &:hover {
@@ -482,6 +501,23 @@ body {
           text-decoration: none;
           font-weight: 400;
           padding: 0 12px;
+        }
+
+        .btn {
+          .loading-spinner {
+            margin-left: 12px;
+            
+            path {
+              fill: $branco;
+            }
+          }
+        }
+        &[data-available='false'] {
+          .btn {
+            background-color: $cor-05;
+            color: $preto;
+            cursor: not-allowed;
+          }
         }
       }
     }
