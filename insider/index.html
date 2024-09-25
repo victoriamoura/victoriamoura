@@ -27,7 +27,7 @@
       <p>Ganhe um brinde em compras acima de $250</p>
     </div>
     <div class="header-main">
-      <picture class="logo">
+      <div class="logo">
         <div class="reflex-effect"></div>
         <svg width="237" height="36" viewBox="0 0 237 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10.5638 0H0.610229V36H10.5638V0Z" fill="#000" />
@@ -45,7 +45,7 @@
             d="M206.884 10.0732H226.792V12.9649H206.884V10.0732ZM236.746 13.3527V9.68093C236.746 4.33599 232.462 0 227.177 0H196.93V36H206.882V23.0351H221.814L226.357 36H236.746L231.743 21.8642C234.724 20.2237 236.746 17.0274 236.746 13.3527Z"
             fill="#000" />
         </svg>
-      </picture>
+      </div>
       <div class="open-cart js-cart-open">
         <span class="cart-bubble js-cart-bubble">0</span>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" height="32px"
@@ -80,7 +80,8 @@
               d="M434.55,418.7l-27.8-313.3c-0.5-6.2-5.7-10.9-12-10.9h-58.6c-0.1-52.1-42.5-94.5-94.6-94.5s-94.5,42.4-94.6,94.5h-58.6   c-6.2,0-11.4,4.7-12,10.9l-27.8,313.3c0,0.4,0,0.7,0,1.1c0,34.9,32.1,63.3,71.5,63.3h243c39.4,0,71.5-28.4,71.5-63.3   C434.55,419.4,434.55,419.1,434.55,418.7z M241.55,24c38.9,0,70.5,31.6,70.6,70.5h-141.2C171.05,55.6,202.65,24,241.55,24z    M363.05,459h-243c-26,0-47.2-17.3-47.5-38.8l26.8-301.7h47.6v42.1c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h141.2v42.1   c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h47.6l26.8,301.8C410.25,441.7,389.05,459,363.05,459z" />
           </g>
         </svg>
-        <h2>O seu carrinho ainda está vazio. <br />Que tal adicionar produtos?</h2>
+        <h2>O seu carrinho ainda está vazio.</h2>
+          <p>Que tal adicionar produtos?</p>
       </section>
       <section class="cart-content__list-items js-cart-items visibility-hidden"></section>
       <section class="cart-content__footer js-cart-footer visibility-hidden">
@@ -126,12 +127,12 @@
   
   <section class="modal-alert js-modal-store-error visibility-hidden" aria-modal="true" role="dialog">
     <div class="modal-alert__content">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADy0lEQVR4nO2aa2iOYRjHf+a0cpqZ7QNNEcUHPqD2AWUS5dScfRAi5VSKfKAmiy9OH0hLRAklkYZIiZyatiGnSVvIWc4zttlBV11v3R7387zP3j17nhf719X7dr/Pfe/+v/d1+F/3O2jD/4MRwCegSa0amM1fiM0GiZidIImRBuQDOY7xIguRcscz2cBKoCcRoydQopv8qYTaA+nACwuROqCXzp1ruN4tnRPZSZRZNvsQ+GEZN2PlimW8VNcMHUs8NpuorYuCSBbwLkAStcBQIsK0AImsJWJcDYDEHSAlShK9PQL7ETAH6Af0BxYCz1yerQK6h735OVrYyjWd2jZ2H+jhElduZF4C54HtwOgwiFT5cJVJHvPn+5j/JQwi9XE20RDHTbJ8EGkMg0iDDyJdPOZn+yBSHwYRU9G62ViP+XOTxbWGq7ItctFTYsVAqmVud00StjmS/URzHQYmE4Fo/O6ysZuafaQ+dAMmAvc8TkCeiQyidB/4kB7x4uoSEWNjAlXczeZFRSJHe5CgiEgSkYwWOvIDJBGz5VEQSdNmyLmZy3Gq/1fgtmVcMlZkLW+6bqBJe5PpOt7DJZu90uyUorK9VsdLk6FvTwMWq/QwESNomohCE0O1K4ykxfWLwxYiO/gLMQX45ih6ochzL3TWtvYIUKHBLMLuDXAX2KUNVHMxGNijbvgZeKyXGoGjL7DF5yWDkMvzua5ort2OlkCSwwagk9F9rgH26mtCEmYUcCyBglenJ+eFmdoNOpPAAP1cMtpS4KPx+ds4ivo3pGj6LG5hUasBxljWT9VT+OhIxyLrzSx23bGeuHOGfi6nUgBUqpdI2/0HbgQsN3LjiM0+RicpjdhWxx3AC00YMUyw9PsfbItXtoLkkMRwFFitrjEEyLRc/UwzFHIjsN+oLfJ6wGX91zYiq1qBiJtJ7D0FCg23kcz3BBhv7GmqJZ5M22QjIsf7PkQyMTtjZKmu+j5DT9JrnnSoHd18tyACIs7+fLZmKbfn67UkSJy5ItOjdW0tO6d/W0TjyTjPSqs8Ep8oTGAzuVrZZwHbtC5UqGR3i5HnwD798tB5TS5Wp/EQK5a+MNBHj+00KaAtQZ7H9WsZMCzRhU80k0iD3vceBFZoqs02gtcGCe5xwHGXL64GWA90oIX9eFOEdk0FZSC4YrlAk5vyRRqgja2UwZYF/VvJFEcfPsjyDwFnAyRxSmVL4GinNyUL9L2XG55vAQERjjNIIuQAp5tBQFzzkPG7e9JBUvHFOCRKAkjZoUFy/06txtWq4y6oBPFy1TbwL+AX9TJyWjWOhV0AAAAASUVORK5CYII=">
+      <img alt="Icone: Estamos em manutenção." src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADy0lEQVR4nO2aa2iOYRjHf+a0cpqZ7QNNEcUHPqD2AWUS5dScfRAi5VSKfKAmiy9OH0hLRAklkYZIiZyatiGnSVvIWc4zttlBV11v3R7387zP3j17nhf719X7dr/Pfe/+v/d1+F/3O2jD/4MRwCegSa0amM1fiM0GiZidIImRBuQDOY7xIguRcscz2cBKoCcRoydQopv8qYTaA+nACwuROqCXzp1ruN4tnRPZSZRZNvsQ+GEZN2PlimW8VNcMHUs8NpuorYuCSBbwLkAStcBQIsK0AImsJWJcDYDEHSAlShK9PQL7ETAH6Af0BxYCz1yerQK6h735OVrYyjWd2jZ2H+jhElduZF4C54HtwOgwiFT5cJVJHvPn+5j/JQwi9XE20RDHTbJ8EGkMg0iDDyJdPOZn+yBSHwYRU9G62ViP+XOTxbWGq7ItctFTYsVAqmVud00StjmS/URzHQYmE4Fo/O6ysZuafaQ+dAMmAvc8TkCeiQyidB/4kB7x4uoSEWNjAlXczeZFRSJHe5CgiEgSkYwWOvIDJBGz5VEQSdNmyLmZy3Gq/1fgtmVcMlZkLW+6bqBJe5PpOt7DJZu90uyUorK9VsdLk6FvTwMWq/QwESNomohCE0O1K4ykxfWLwxYiO/gLMQX45ih6ochzL3TWtvYIUKHBLMLuDXAX2KUNVHMxGNijbvgZeKyXGoGjL7DF5yWDkMvzua5ort2OlkCSwwagk9F9rgH26mtCEmYUcCyBglenJ+eFmdoNOpPAAP1cMtpS4KPx+ds4ivo3pGj6LG5hUasBxljWT9VT+OhIxyLrzSx23bGeuHOGfi6nUgBUqpdI2/0HbgQsN3LjiM0+RicpjdhWxx3AC00YMUyw9PsfbItXtoLkkMRwFFitrjEEyLRc/UwzFHIjsN+oLfJ6wGX91zYiq1qBiJtJ7D0FCg23kcz3BBhv7GmqJZ5M22QjIsf7PkQyMTtjZKmu+j5DT9JrnnSoHd18tyACIs7+fLZmKbfn67UkSJy5ItOjdW0tO6d/W0TjyTjPSqs8Ep8oTGAzuVrZZwHbtC5UqGR3i5HnwD798tB5TS5Wp/EQK5a+MNBHj+00KaAtQZ7H9WsZMCzRhU80k0iD3vceBFZoqs02gtcGCe5xwHGXL64GWA90oIX9eFOEdk0FZSC4YrlAk5vyRRqgja2UwZYF/VvJFEcfPsjyDwFnAyRxSmVL4GinNyUL9L2XG55vAQERjjNIIuQAp5tBQFzzkPG7e9JBUvHFOCRKAkjZoUFy/06txtWq4y6oBPFy1TbwL+AX9TJyWjWOhV0AAAAASUVORK5CYII=">
       <h2 class="subtitle">Estamos em manutenção!</h2>
       <p>Aproveite para acompanhar as novidades pelo instagram <a target="_blank" href="http://instagram.com/insiderstore">@insider</a></p>
       <button class="btn js-close-modal">fechar</button>
     </div>
   </section>
-  <script src="./assets/src/js/index.js" type="module" defer></script>
+  <script src="./assets/dist/js/index.min.js" type="module"></script>
 </body>
 </html>

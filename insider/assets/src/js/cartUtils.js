@@ -28,9 +28,7 @@ export function handleItemOnCart(product, action) {
       const newCartID = data.data ? data.data.id : null;
       if (!cartID && newCartID) {
         localStorage.setItem('cartID', newCartID);
-        console.log('[handleItemOnCart] Novo cartID armazenado:', newCartID);
       }
-      console.log('[handleItemOnCart] Carrinho atualizado na API:', data);
     })
     .catch(error => {
       console.error('[handleItemOnCart] Erro ao atualizar o carrinho na API:', error);
@@ -52,18 +50,17 @@ export function cartUpdateAPI(products, id) {
   })
     .then(response => {
       if (!response.ok) {
-        throw new Error(`Erro ao ${id ? 'atualizar' : 'criar'} o carrinho com ID ${id}`);
+        throw new Error(`[cartUpdateAPI] Erro ao ${id ? 'atualizar' : 'criar'} o carrinho com ID ${id}`);
       }
       return response.json();
     })
     .then(cart => {
-      console.log(`Carrinho ${id ? `com ID ${id}` : 'criado'} com sucesso:`, cart);
       localStorage.setItem('cartID', cart.data.id);
       cartUpdateUI(cart.data)
       return cart;
     })
     .catch(error => {
-      console.error('Erro ao atualizar/criar o carrinho:', error);
+      console.error('[cartUpdateAPI] Erro ao atualizar/criar o carrinho:', error);
       throw error;
     });
 }
@@ -73,13 +70,11 @@ export function cartUpdateUI(cart) {
   const cartDrawer = document.querySelector('cart-side');
   const cartBubble = document.querySelector('.js-cart-bubble');
   const cartItemsElem = cartDrawer.querySelector('.js-cart-items');
-
+  const cartItems = cart.products;
   const isCartEmpty = cart.skus_quantity < 1;
   toggleCartVisibility(isCartEmpty);
   cartBubble && (cartBubble.textContent = cart.skus_quantity);
   cartItemsElem.innerHTML = '';
-
-  const cartItems = cart.products;
   cartItems.forEach(item => {
     cartItemsElem.innerHTML += `
       <product-module
@@ -140,7 +135,6 @@ export async function cartRecovery(cartID) {
       throw new Error('[cartRecovery] Erro ao recuperar o carrinho da API');
     }
     const cart = await response.json();
-    console.log('[cartRecovery] Carrinho recuperado da API:', cart);
     cartUpdateUI(cart.data);
   } catch (error) {
     console.error('[cartRecovery] Erro ao recuperar o carrinho:', error);
@@ -164,26 +158,17 @@ export async function collectionRecovery(boxLoadingPage) {
 
     const data = await response.json();
     const products = data.data;
-
-    if (products && products.length > 0) {
+    if (products?.length) {
       products.forEach(product => {
-      if (product.sku.inventory === 0) {
-        product.tag = 'sold-out';
-        product.tagText = 'Volta logo';
-        product.available = false;
-      } else if (product.sku.inventory < 15) {
-        product.tag = 'last-units';
-        product.tagText = 'últimas unidades';
-        product.available = true;
-      } else {
-        product.tag = 'visibility-hidden';
-        product.available = true;
-      }
+        const { inventory } = product.sku;
+        const isSoldOut = inventory === 0;
+        const isLastUnits = inventory < 15;
+        product.tag = isSoldOut ? 'sold-out' : isLastUnits ? 'last-units' : 'visibility-hidden';
+        product.tagText = isSoldOut ? 'Volta logo' : isLastUnits ? 'últimas unidades' : '';
+        product.available = isLastUnits || (!isSoldOut);
         product.price = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.sku.price);
         pagePopulate(product);
       });
-    } else {
-      console.error('[collectionRecovery] Nenhum produto encontrado.');
     }
   } catch (error) {
     console.error('[collectionRecovery] Erro ao buscar os dados:', error);
@@ -247,7 +232,6 @@ export function getCartsAPI() {
       return response.json();
     })
     .then(data => {
-      console.log('[getCartsAPI] Dados recebidos:', data);
       return data.data;
     })
     .catch(error => {
@@ -270,7 +254,6 @@ export function cartDeleteAPI(id) {
       if (!response.ok) {
         throw new Error(`[cartDeleteAPI] Erro ao deletar carrinho com ID ${id}`);
       }
-      console.log(`[cartDeleteAPI] Carrinho com ID ${id} deletado com sucesso`);
       return true;
     })
     .catch(error => {
@@ -284,10 +267,7 @@ export function deleteAllCartsAPI() {
   getCartsAPI()
     .then(listCarts => {
       const carts = listCarts || [];
-      if (carts.length === 0) {
-        console.log('Nenhum carrinho para deletar.');
-        return;
-      }
+      if (carts.length === 0) {  return; }
       carts.forEach(cart => {
         cartDeleteAPI(cart.id);
       });
