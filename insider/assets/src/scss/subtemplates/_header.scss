@@ -33,14 +33,14 @@ header {
           left: 170px;
         }
       }
-      
+
       @media (max-width: 480px) {
         svg {
           width: 180px;
         }
       }
 
-      .reflexo {
+      .reflex-effect {
         background: transparent;
         background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
         width: 100%;

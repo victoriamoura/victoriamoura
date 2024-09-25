@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Insider Test</title>
-  <meta name="description"
-    content="Encontre as melhores roupas de performance e sustentáveis na Insider Store. Camisetas, calças e mais.">
-  <link rel="stylesheet" href="./assets/dist/css/style.css">
+  <link rel="icon" type="image/png" href="//www.insiderstore.com.br/cdn/shop/files/favicon_430x_1.png?crop=center&height=32&v=1721655336&width=32">
+  <title>Insider Store</title>
+  <link rel="stylesheet" href="./assets/dist/css/style.min.css">
   <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css">
   <link rel="stylesheet" href="./assets/fonts/formular/stylesheet.css">
+  <meta name="description" content="A INSIDER cria peças tecnológicas, sustentáveis e essencialmente funcionais. Confira a inovação em camisetas, underwear, esportivos, acessórios e mais.">
+  <meta property="og:site_name" content="Insider">
+  <meta property="og:url" content="https://www.insiderstore.com.br/">
+  <meta property="og:title" content="Confira peças essenciais com tecnologia têxtil | Insider">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A INSIDER cria peças tecnológicas, sustentáveis e essencialmente funcionais. Confira a inovação em camisetas, underwear, esportivos, acessórios e mais."><meta property="og:image" content="http://www.insiderstore.com.br/cdn/shop/files/Group_4.png?v=1713295054">
+  <meta property="og:image:secure_url" content="https://www.insiderstore.com.br/cdn/shop/files/Group_4.png?v=1713295054">
+  <meta property="og:image:width" content="1228">
+  <meta property="og:image:height" content="421"><meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Confira peças essenciais com tecnologia têxtil | Insider">
+  <meta name="twitter:description" content="A INSIDER cria peças tecnológicas, sustentáveis e essencialmente funcionais. Confira a inovação em camisetas, underwear, esportivos, acessórios e mais.">
 </head>
 
 <body>
@@ -20,20 +30,20 @@
       <picture class="logo">
         <div class="reflexo"></div>
         <svg width="237" height="36" viewBox="0 0 237 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10.5638 0H0.610229V36H10.5638V0Z" fill="black" />
-          <path d="M108.724 0H98.77V36H108.724V0Z" fill="black" />
+          <path d="M10.5638 0H0.610229V36H10.5638V0Z" fill="#000" />
+          <path d="M108.724 0H98.77V36H108.724V0Z" fill="#000" />
           <path d="M56.0951 0V23.0366H85.9588V25.9283H56.0951V36H95.9109V12.9634H66.0502V10.0717H95.9109V0H56.0951Z"
-            fill="black" />
+            fill="#000" />
           <path
             d="M154.256 0V35.841V36H194.072V25.9283H164.208V23.0366H194.072V12.9634H164.208V10.0717H194.072V0H154.256Z"
-            fill="black" />
-          <path d="M13.4215 0V36H23.3766V9.95583H43.2837V36H53.2388V0H13.4215Z" fill="black" />
+            fill="#000" />
+          <path d="M13.4215 0V36H23.3766V9.95583H43.2837V36H53.2388V0H13.4215Z" fill="#000" />
           <path
             d="M141.444 25.9268H121.535V10.0717H141.444V25.9268ZM141.828 0H111.581V36H141.828C147.112 36 151.397 31.6655 151.397 26.3176V9.68242C151.397 4.33599 147.113 0 141.828 0Z"
-            fill="black" />
+            fill="#000" />
           <path
             d="M206.884 10.0732H226.792V12.9649H206.884V10.0732ZM236.746 13.3527V9.68093C236.746 4.33599 232.462 0 227.177 0H196.93V36H206.882V23.0351H221.814L226.357 36H236.746L231.743 21.8642C234.724 20.2237 236.746 17.0274 236.746 13.3527Z"
-            fill="black" />
+            fill="#000" />
         </svg>
       </picture>
       <div class="open-cart js-open-cart">
@@ -58,7 +68,7 @@
     </div>
   </main>
 
-  <cart-side class="cart js-cart" role="aside">
+  <cart-side class="cart js-cart" role="dialog">
     <button class="cart-close js-cart-close" type="button" aria-label="Fechar">X</button>
     <section class="cart-content js-cart-content">
       <h2 class="subtitle">carrinho</h2>
@@ -74,35 +84,41 @@
       </section>
       <section class="cart-content__list-items js-cart-items visibility-hidden"></section>
       <section class="cart-content__footer js-cart-footer visibility-hidden">
+        <p class="cart-content__footer__shipping"><span>Frete Fixo</span> <strong>Grátis</strong></p>
+        <p class="cart-content__footer__description">Subtotal</p>
         <p class="cart-content__footer__total js-cart-total"></p>
-        <button class="js-buy-products btn js-cart-btn">finalizar compra</button>
+        <button class="btn js-cart-btn">finalizar compra</button>
       </section>
     </section>
   </cart-side>
 
   <footer>
-    <p>
-      <a href="https://www.insiderstore.com.br/">© Insider</a><br />
-      CNPJ 26.520.188/0001-92 - Insider Comércio e Confecção de Peças do Vestuário Ltda.
+    <p>Desenvolvido por Victoria Moura © Insider<br /> CNPJ 26.520.188/0001-92 - Insider Comércio e Confecção de Peças do Vestuário Ltda.
     </p>
   </footer>
 
-  <section class="modal-alert js-modal-order-success visibility-hidden">
+  <section class="modal-alert js-modal-order-success visibility-hidden" aria-modal="true" role="dialog">
     <div class="modal-alert__content">
-      <h2 class="subtitle">Compra realizada!</h2>
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+        <path fill="#c8e6c9" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#4caf50" d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z"></path>
+      </svg>
+      <h2 class="subtitle">Pedido realizado!</h2>
       <p>Em breve enviaremos seu pedido!</p>
-      <button>fechar</button>
+      <button class="btn js-close-modal">fechar</button>
     </div>
   </section>
 
-  <section class="modal-alert js-modal-order-success visibility-hiddens">
+  <section class="modal-alert js-modal-order-error visibility-hidden" aria-modal="true" role="dialog">
     <div class="modal-alert__content">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+        <path fill="#f44336" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#fff" d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"></path><path fill="#fff" d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"></path>
+      </svg>
       <h2 class="subtitle">Ops! Algo deu errado :(</h2>
       <p>Que tal revisar o carrinho e tentar novamente?!</p>
-      <button>fechar</button>
+      <button class="btn js-close-modal">fechar</button>
     </div>
   </section>
-  <script src="./assets/src/js/index.js" defer></script>
+  <script src="./assets/dist/js/index.min.js" defer></script>
 </body>
 
 </html>

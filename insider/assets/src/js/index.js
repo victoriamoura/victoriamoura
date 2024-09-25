@@ -41,8 +41,8 @@ class CollectionGrid extends HTMLElement {
         this.boxLoadingPage.classList.add("visibility-hidden")
         setTimeout(() => {
           this.boxLoadingPage.remove()
-        }, 1000);
-      }, 2000);
+        }, 500);
+      },500);
     }
   }
 
@@ -99,15 +99,8 @@ class ProductModule extends HTMLElement {
 
   updateCart(productItem) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
     const existingProduct = cart.find(item => item.id === productItem.id);
-
-    if (existingProduct) {
-      existingProduct.quantity += 1;
-    } else {
-      cart.push(productItem);
-    }
-
+    existingProduct ? existingProduct.quantity += 1 : cart.push(productItem);
     localStorage.setItem('cart', JSON.stringify(cart));
     this.updateCartUI(cart);
   }
@@ -131,22 +124,9 @@ class ProductModule extends HTMLElement {
       };  
   
       let brindeExists = cart.find(item => item.id === giftProduct.id);
-  
-      cart.forEach(item => {
-        if (item.id !== giftProduct.id) {
-          total += item.price * item.quantity;
-        }
-      });
-  
-      if (total >= 250) {
-        if (!brindeExists) {
-          cart.unshift(giftProduct);
-        }
-      } else {
-        if (brindeExists) {
-          cart = cart.filter(item => item.id !== giftProduct.id);
-        }
-      }
+      total = cart.reduce((sum, item) => item.id !== giftProduct.id ? sum + item.price * item.quantity : sum, 0);
+      total >= 250 && !brindeExists ? cart.unshift(giftProduct) : total < 250 && brindeExists && (cart = cart.filter(item => item.id !== giftProduct.id));
+
 
       cart.forEach(item => {
         cartItemsElem.innerHTML += `
@@ -226,7 +206,7 @@ class ProductModule extends HTMLElement {
           if (item.quantity > 1) {
             item.quantity -= 1;
           } else {
-            cart = cart.filter(item => item.id !== itemId); // Remove o item se a quantidade chegar a zero
+            cart = cart.filter(item => item.id !== itemId);
           }
           localStorage.setItem('cart', JSON.stringify(cart));
           this.updateCartUI(cart);
@@ -238,7 +218,7 @@ class ProductModule extends HTMLElement {
       button.addEventListener('click', () => {
         const itemId = button.dataset.id;
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart = cart.filter(item => item.id !== itemId); // Remove o item do carrinho
+        cart = cart.filter(item => item.id !== itemId);
         localStorage.setItem('cart', JSON.stringify(cart));
         this.updateCartUI(cart);
       });
@@ -253,42 +233,41 @@ class CartSide extends HTMLElement {
   }
 
   connectedCallback() {
+    this.apiCarts = 'https://us-central1-insider-integrations.cloudfunctions.net/front-end-api-interviews/v1/carts';
     this.cartContentElem = this.querySelector(".js-cart-content")
     this.cartItemsElem = this.cartContentElem.querySelector(".js-cart-items");
     this.cartEmptyElem =  this.cartContentElem.querySelector(".js-cart-empty");
     this.cartFooterElem = this.cartContentElem.querySelector(".js-cart-footer");
     this.cartFooterTotalElem = this.cartFooterElem.querySelector(".js-cart-total");
     this.cartFooterBtnElem = this.cartFooterElem.querySelector(".js-cart-btn");
+    this.cartFooterBtnElem.addEventListener('click', this.finalizePurchase.bind(this));
 
-    this.render();
-    this.apiCarts = 'https://us-central1-insider-integrations.cloudfunctions.net/front-end-api-interviews/v1/carts';
-
-    this.cartFooterBtnElem.addEventListener('click',
-      this.finalizePurchase()
-    );
+    this.headerCloseCartBtn = this.querySelector(".js-cart-close");
+    this.headerCloseCartBtn.addEventListener('click', () => {
+      this.classList.remove("cart-opened");
+      document.body.classList.remove("no-scroll");
+    });
 
     const openCartBtn = document.querySelector(".js-open-cart")
     openCartBtn.addEventListener('click', () => {
       this.classList.add("cart-opened")
       document.body.classList.add("no-scroll");
     });
-
-    this.closeCartBtn = this.querySelector(".js-cart-close");
-    this.closeCartBtn.addEventListener('click', () => {
-      this.classList.remove("cart-opened");
-      document.body.classList.remove("no-scroll");
-    });
+    
+    this.render();
   }
 
   render() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+  
     if (cart.length === 0) {
-      this.cartEmptyElem.classList.remove("visibility-hidden")
-      this.cartFooterElem.classList.add("visibility-hidden")
+      this.cartEmptyElem.classList.remove("visibility-hidden");
+      this.cartFooterElem.classList.add("visibility-hidden");
+      this.cartItemsElem.classList.add("visibility-hidden");
     } else {
-      this.cartEmptyElem.classList.add("visibility-hidden")
-      this.cartFooterElem.classList.remove("visibility-hidden")
+      this.cartEmptyElem.classList.add("visibility-hidden");
+      this.cartFooterElem.classList.remove("visibility-hidden");
+      this.cartItemsElem.classList.remove("visibility-hidden");
       this.updateCartUI(cart);
     }
   }
@@ -308,22 +287,8 @@ class CartSide extends HTMLElement {
     };
 
     let brindeExists = cart.find(item => item.id === giftProduct.id);
-
-    cart.forEach(item => {
-      if (item.id !== giftProduct.id) {
-        total += item.price * item.quantity;
-      }
-    });
-
-    if (total >= 250) {
-      if (!brindeExists) {
-        cart.unshift(giftProduct);
-      }
-    } else {
-      if (brindeExists) {
-        cart = cart.filter(item => item.id !== giftProduct.id);
-      }
-    }
+    total = cart.reduce((sum, item) => item.id !== giftProduct.id ? sum + item.price * item.quantity : sum, 0);
+    total >= 250 && !brindeExists ? cart.unshift(giftProduct) : total < 250 && brindeExists && (cart = cart.filter(item => item.id !== giftProduct.id));
 
     cart.forEach(item => {
       this.cartItemsElem.innerHTML += `
@@ -406,6 +371,7 @@ class CartSide extends HTMLElement {
   
   finalizePurchase() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // console.log(cart)
     if (cart.length === 0) { return; }
 
     const cartData = {
@@ -415,6 +381,8 @@ class CartSide extends HTMLElement {
         quantity: item.quantity,
       })),
     };
+
+    console.log(this.apiCarts)
 
     fetch(this.apiCarts, {
       method: 'POST',
@@ -430,12 +398,28 @@ class CartSide extends HTMLElement {
         return response.json();
       })
       .then(data => {
-        document.querySelector('.js-modal-order-success').style.display = 'flex';
+        document.querySelector('.js-modal-order-success').classList.remove("visibility-hidden")
         localStorage.removeItem('cart');
       })
       .catch(error => {
-        document.querySelector('.js-modal-order-error').style.display = 'flex';
+        document.querySelector('.js-modal-order-error').classList.remove("visibility-hidden")
       });
   }
 }
 customElements.define('cart-side', CartSide);
+
+const closeModalButtons = document.querySelectorAll('.js-close-modal');
+closeModalButtons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    document.querySelectorAll('.modal-alert').forEach(function(modal) {
+      window.location.reload(true);
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cartSide = document.querySelector('cart-side');
+  if (cartSide) {
+    cartSide.render();
+  }
+});
