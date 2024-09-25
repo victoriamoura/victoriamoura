@@ -136,7 +136,7 @@ class ProductModule extends HTMLElement {
               <img src="${item.image}&width=82" width="82px" alt="Produto ${item.id}">
             </picture>
             <div class="cart-item__infos">
-              <p class="cart-item__infos__name">${item.name}</p>
+              <h4 class="cart-item__infos__name">${item.name}</h4>
               <p class="cart-item__infos__brinde visibility-hidden">brinde</p>
               <p class="cart-item__infos__price">${Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(item.price)}</p>
               <div class="cart-item__infos__quantity">
@@ -298,7 +298,7 @@ class CartSide extends HTMLElement {
             <img src="${item.image}&width=82" width="82px" alt="Produto ${item.id}">
           </picture>
           <div class="cart-item__infos">
-            <p class="cart-item__infos__name">${item.name}</p>
+            <h4 class="cart-item__infos__name">${item.name}</h4>
             <p class="cart-item__infos__brinde visibility-hidden">brinde</p>
             <p class="cart-item__infos__price">${Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(item.price)}</p>
             <div class="cart-item__infos__quantity">
