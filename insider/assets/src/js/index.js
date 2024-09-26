@@ -4,7 +4,6 @@ import {
   toggleCartVisibility,
   handleItemOnCart,
   cartDeleteAPI,
-  addGiftsOnCart,
   deleteAllCartsAPI
 } from './cartUtils.min.js';
 

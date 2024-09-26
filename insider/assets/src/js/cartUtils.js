@@ -37,37 +37,7 @@ export function handleItemOnCart(product, action) {
     });
 }
 
-// Atualizar ou criar carrinho na API
-export function cartUpdateAPI(products, id) {
-  const idPath = id ? `${id}` : '';
-  const url = `https://us-central1-insider-integrations.cloudfunctions.net/front-end-api-interviews/v1/carts/${idPath}`;
-  const method = id ? 'PUT' : 'POST';
-
-  return fetch(url, {
-    method: method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(products),
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`[cartUpdateAPI] Erro ao ${id ? 'atualizar' : 'criar'} o carrinho com ID ${id}`);
-      }
-      return response.json();
-    })
-    .then(cart => {
-      localStorage.setItem('cartID', cart.data.id);
-      cartUpdateUI(cart.data)
-      return cart;
-    })
-    .catch(error => {
-      console.error('[cartUpdateAPI] Erro ao atualizar/criar o carrinho:', error);
-      throw error;
-    });
-}
-
-// Função para adicionar ou remover brindes do carrinho
+// Adicionar ou remover brindes do carrinho
 export async function addGiftsOnCart() {
   const url = `https://us-central1-insider-integrations.cloudfunctions.net/front-end-api-interviews/v1/products/`;
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -144,6 +114,35 @@ export async function addGiftsOnCart() {
   }
 }
 
+// Atualizar ou criar carrinho na API
+export function cartUpdateAPI(products, id) {
+  const idPath = id ? `${id}` : '';
+  const url = `https://us-central1-insider-integrations.cloudfunctions.net/front-end-api-interviews/v1/carts/${idPath}`;
+  const method = id ? 'PUT' : 'POST';
+
+  return fetch(url, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(products),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`[cartUpdateAPI] Erro ao ${id ? 'atualizar' : 'criar'} o carrinho com ID ${id}`);
+      }
+      return response.json();
+    })
+    .then(cart => {
+      localStorage.setItem('cartID', cart.data.id);
+      cartUpdateUI(cart.data)
+      return cart;
+    })
+    .catch(error => {
+      console.error('[cartUpdateAPI] Erro ao atualizar/criar o carrinho:', error);
+      throw error;
+    });
+}
 
 // Atualiza carrinho na UI
 export function cartUpdateUI(cart) {
@@ -160,10 +159,7 @@ export function cartUpdateUI(cart) {
     cartItemsElem.innerHTML += `
       <product-module
         data-product="${item.product.id}"
-        data-sku="${item.sku.id}"
-        data-name="${item.name}"
         data-price="${item.sku.price}"
-        data-image="${item.image_url}"
         class="cart-item"
       >
         <picture class="cart-item__picture">
@@ -272,9 +268,7 @@ export function pagePopulate(product) {
     <product-module
       data-product="${product.id}"
       data-sku="${product.sku.id}"
-      data-name="${product.name}"
       data-price="${product.sku.price}"
-      data-image="${product.image_url}"
       class="collection__product-module"
       role="listitem"
       ${product.available}

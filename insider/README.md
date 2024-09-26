@@ -131,6 +131,10 @@ Atualizar ou criar carrinho na API recebendo lista de produtos do carrinho e seu
 
 Atualiza carrinho na UI recebendo o carrinho
 
+⚙️ **addGiftsOnCart()**
+
+Adicionar ou remover brindes do carrinho caso o valor total seja R$250
+
 ⚙️ **cartRecovery(cartID)**
 
 Recuperar o carrinho da API recebendo o ID
