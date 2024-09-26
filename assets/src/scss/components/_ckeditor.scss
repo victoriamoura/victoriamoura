@@ -1,0 +1,168 @@
+.text_style {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 10px 0;
+	color: $cor-texto-1;
+
+	@include breakpoint($tablet-l) {
+		font-size: 14px;
+	}
+}
+
+.ckeditor {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+
+	p {
+		@extend .text_style;
+		font-family: $fonte-1;
+		margin: 10px 0;
+
+		@include breakpoint($mobile-l) {
+			font-size: 14px;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@extend .text_style;
+		font-family: $fonte-1;
+		font-weight: 700;
+		margin: 1.4rem 0;
+		color: $cor-texto-1;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+
+	h2 {
+		font-size: 1.4rem;
+	}
+
+	h3 {
+		font-size: 1.3rem;
+	}
+
+	h4 {
+		font-size: 1.2rem;
+	}
+
+	h5 {
+		font-size: 1.1rem;
+	}
+
+	h6 {
+		font-size: 1rem;
+	}
+
+	ul,
+	ol {
+		padding-left: 30px;
+		margin: 25px 0;
+
+		li {
+			@extend .text_style;
+			margin: 5px 0;
+			list-style-type: disc;
+			list-style-type: decimal;
+		}
+	}
+
+	a {
+		color: $cor-1;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	strong {
+		font-weight: bold;
+	}
+
+	pre {
+		font-style: italic;
+		font-family: $fonte-1;
+		color: $cor-03;
+		background: #eee;
+		padding: 10px;
+		border: 1px solid #aaa;
+
+		p {
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	blockquote {
+		p {
+			font-style: italic;
+			font-family: $fonte-1;
+			//color: $cor-03;
+
+			&:before,
+			&:after {
+				position: relative;
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+				font-size: 14px;
+				display: inline-block;
+				color: $cor-05;
+				margin: 0 10px;
+			}
+
+			&:before {
+				content: "\f10d";
+			}
+
+			&:after {
+				content: "\f10e";
+			}
+		}
+	}
+
+	img {
+		display: block;
+		width: auto;
+		max-width: 100%;
+		text-align: center;
+		margin: 40px auto;
+	}
+
+	iframe {
+		width: 100% !important;
+		height: 100% !important;
+		min-height: 445px;
+
+		@include breakpoint($tablet-l) {
+			min-height: 340px;
+		}
+
+		@include breakpoint($tablet-m) {
+			min-height: 395px;
+		}
+
+		@include breakpoint($mobile-l) {
+			min-height: 165px;
+		}
+	}
+
+	// iframe
+}
+
+// ckeditor

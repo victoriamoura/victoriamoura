@@ -1,0 +1,254 @@
+/*
+= HTML Bodies
+===================================================*/
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: $fonte-1;
+  color: $cor-texto-1;
+  line-height: 1.4;
+  background: $branco;
+  cursor: url('../img/cursor.png'), auto;
+
+  @include breakpoint($tablet-l) {
+    font-size: 14px;
+  }
+}
+
+main {
+  display: block;
+  @include clearfix;
+}
+
+/*
+= HTML Headings
+= https://www.w3schools.com/html/html_headings.asp
+===================================================*/
+
+h1 {
+  font-family: $fonte-1;
+  color: $branco;
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 300;
+
+  strong {
+    color: $cor-1;
+    font-weight: 600;
+  }
+         
+  @include breakpoint($tablet-l) {
+    font-size: 48px;
+  } 
+
+  @include breakpoint($tablet-s) {
+    font-size: 40px;
+  }
+
+  @include breakpoint(max-width 580px) {
+    font-size: 30px;
+  }
+  
+  @include breakpoint($mobile-l) {
+    br { display: none; }
+  }
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 1;
+
+  @include breakpoint($mobile-x) {
+    font-size: 38px;
+  }
+
+  strong {
+    color: $cor-1;
+  }
+}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+/*
+= HTML Paragraphs
+= https://www.w3schools.com/html/html_paragraphs.asp
+=====================================================*/
+
+p {
+  color: $cor-texto-1;
+  font-family: $fonte-1;
+  margin: 10px 0;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 400;
+
+  @include breakpoint($mobile-m) {
+    font-size: 14px;
+  }
+
+  a {}
+
+  span {}
+
+  br {}
+
+  cite {}
+}
+
+/*
+= HTML Quotation and Citation Elements
+= https://www.w3schools.com/html/html_quotation_elements.asp
+=============================================================*/
+
+q {}
+
+blockquote {}
+
+abbr {}
+
+bdo {}
+
+address {}
+
+/*
+= HTML Formatting Elements
+= https://www.w3schools.com/html/html_formatting.asp
+=====================================================*/
+
+a {
+  text-decoration: none !important;
+  color: $cor-1;
+
+  &:visited,
+  &:active {
+    text-decoration: none !important;
+    color: $cor-1;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+b {
+  font-weight: bold;
+}
+
+strong {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+em {}
+
+mark {}
+
+small {}
+
+del {}
+
+ins {}
+
+sub {}
+
+sup {}
+
+/*
+= HTML Lists
+= https://www.w3schools.com/html/html_lists.asp
+================================================*/
+
+ul {
+  li {
+    a {}
+  }
+
+  dl {}
+
+  dt {}
+
+  dd {}
+}
+
+ol {
+  li {}
+
+  dl {}
+
+  dt {}
+
+  dd {}
+}
+
+/*
+= HTML Images
+= https://www.w3schools.com/html/html_images.asp
+=================================================*/
+
+img {}
+
+map {}
+
+area {}
+
+picture {}
+
+figure {
+  figcaption {}
+}
+
+/*
+= HTML Tables
+= https://www.w3schools.com/html/html_tables.asp
+=================================================*/
+
+table {
+  caption {}
+
+  colgroup {}
+
+  col {}
+
+  thead {}
+
+  tbody {}
+
+  tfoot {}
+
+  tr {
+    th {}
+
+    td {}
+  }
+}
+
+/*
+= HTML Computer Code Elements
+= https://www.w3schools.com/html/html_computercode_elements.asp
+================================================================*/
+
+code {}
+
+kbd {}
+
+samp {}
+
+var {}
+
+pre {}
+
+iframe {}
+
+hr {}

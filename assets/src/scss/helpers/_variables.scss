@@ -1,0 +1,29 @@
+$branco: #ffffff;
+$preto: #000000;
+$cor-01: tint($preto, 0%);
+$cor-02: tint($preto, 20%);
+$cor-03: tint($preto, 40%);
+$cor-04: tint($preto, 60%);
+$cor-05: tint($preto, 80%);
+$cor-06: tint($preto, 100%);
+
+$cor-1: #EEFF90;
+$cor-2: #111111;
+$cor-texto-1: #111111;
+
+$fonte-1: 'Fredoka', sans-serif;
+$fonte-2: 'Fredoka', sans-serif;
+
+$desktop-x: max-width 1919px;
+$desktop-l: max-width 1599px;
+$desktop-m: max-width 1439px;
+$desktop-s: max-width 1365px;
+$tablet-x: max-width 1279px;
+$tablet-l: max-width 1023px;
+$tablet-m: max-width 959px;
+$tablet-s: max-width 767px;
+$mobile-x: max-width 719px;
+$mobile-l: max-width 413px;
+$mobile-m: max-width 374px;
+$mobile-s: max-width 359px;
+$layout: 1280px;

@@ -1,0 +1,22 @@
+@charset 'UTF-8';
+/* 
+  > Document: Rocketplate
+  > Version:  1.0.0
+  > Author:   Victoria Moura
+  > E-mail:   victoriamoura@gmail.com
+  > URL:      www.victoriamoura.com.br
+======================================================= */
+
+@import "helpers/bourbon";
+@import "helpers/breakpoint";
+@import "helpers/mixins";
+@import "helpers/resets";
+@import "helpers/variables";
+@import "helpers/global";
+@import "components/buttons";
+@import "components/modals";
+@import "components/tags";
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+@import "subtemplates/footer";
+@import "subtemplates/header";
+@import "templates/home";
