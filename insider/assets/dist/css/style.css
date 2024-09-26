@@ -473,10 +473,11 @@ header .header-main .open-cart .js-cart-bubble {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #000;
-  color: #fff;
-  font-size: 10px;
+  background: #1489a3;
+  color: #ffffff;
+  font-size: 12px;
   font-family: "formular", sans-serif;
+  font-weight: bold;
   right: -6px;
   top: 0;
   display: flex;
@@ -524,7 +525,7 @@ body.no-scroll {
 }
 @media (max-width: 1440px) {
   body {
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 1fr 400px;
   }
 }
 @media (max-width: 880px) {
@@ -583,7 +584,7 @@ body .cart .cart-close {
 body .cart .cart-content {
   position: sticky;
   top: 0;
-  padding: 24px;
+  padding: 24px 12px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -591,14 +592,19 @@ body .cart .cart-content {
 }
 @media (max-width: 480px) {
   body .cart .cart-content {
-    padding: 16px;
+    padding: 16px 8px;
     padding-bottom: 60px;
   }
 }
 body .cart .cart-content h2 {
   text-align: left;
   font-size: 16px;
-  height: 20px;
+  padding: 0 12px;
+}
+@media (max-width: 480px) {
+  body .cart .cart-content h2 {
+    padding: 0 6px;
+  }
 }
 body .cart .cart-content__empty {
   height: calc(100vh - 124px);
@@ -621,6 +627,12 @@ body .cart .cart-content__empty h2 {
 body .cart .cart-content__list-items {
   height: calc(100% - 124px);
   overflow-y: auto;
+  padding: 12px;
+}
+@media (max-width: 480px) {
+  body .cart .cart-content__list-items {
+    padding: 6px;
+  }
 }
 body .cart .cart-content__list-items .cart-item {
   position: relative;
@@ -636,12 +648,12 @@ body .cart .cart-content__list-items .cart-item {
     margin-bottom: 16px;
   }
 }
-body .cart .cart-content__list-items .cart-item[data-sku=brinde] .cart-item__infos__quantity,
-body .cart .cart-content__list-items .cart-item[data-sku=brinde] .cart-item__infos__price,
-body .cart .cart-content__list-items .cart-item[data-sku=brinde] .cart-item__rmv-all {
+body .cart .cart-content__list-items .cart-item[data-price="0"] .cart-item__infos__quantity,
+body .cart .cart-content__list-items .cart-item[data-price="0"] .cart-item__infos__price,
+body .cart .cart-content__list-items .cart-item[data-price="0"] .cart-item__rmv-all {
   display: none;
 }
-body .cart .cart-content__list-items .cart-item[data-sku=brinde] .cart-item__infos__brinde {
+body .cart .cart-content__list-items .cart-item[data-price="0"] .cart-item__infos__brinde {
   order: 2;
   display: block;
   text-transform: uppercase;
@@ -713,6 +725,11 @@ body .cart .cart-content__list-items .cart-item__infos .loading-spinner {
   left: 100px;
   bottom: 10px;
 }
+@media (max-width: 480px) {
+  body .cart .cart-content__list-items .cart-item__infos .loading-spinner {
+    bottom: -1px;
+  }
+}
 body .cart .cart-content__list-items .cart-item__infos .loading-spinner path {
   fill: #1489a3;
 }
@@ -779,16 +796,17 @@ body .cart .cart-content__list-items .cart-item__infos__quantity-curr {
   font-size: 16px;
   line-height: 1;
 }
-body .cart .cart-content__list-items::-webkit-scrollbar {
-  position: relative;
-  right: -10px;
-}
 body .cart .cart-content__footer {
   height: 124px;
-  padding-top: 24px;
+  padding: 24px 12px 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+  body .cart .cart-content__footer {
+    padding: 16px 6px 0;
+  }
 }
 body .cart .cart-content__footer__shipping {
   width: 100%;
@@ -984,6 +1002,9 @@ body .content .collection__product-module[disabled] .btn {
   background-color: #cccccc;
   color: #000000;
   cursor: not-allowed;
+}
+body .content .collection__product-module[data-price="0"] {
+  display: none;
 }
 
 *::-webkit-scrollbar {

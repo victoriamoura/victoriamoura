@@ -4,6 +4,7 @@ import {
   toggleCartVisibility,
   handleItemOnCart,
   cartDeleteAPI,
+  addGiftsOnCart,
   deleteAllCartsAPI
 } from './cartUtils.min.js';
 
@@ -41,6 +42,8 @@ class ProductModule extends HTMLElement {
     this.productName = this.getAttribute('data-name');
     this.productImage = this.getAttribute('data-image');
     this.productPrice = parseFloat(this.getAttribute('data-price'));
+    const cartElem = document.querySelector(".js-cart")
+
     const newProduct = {
       product: this.productId,
       sku: this.productSku,
@@ -53,7 +56,8 @@ class ProductModule extends HTMLElement {
     if (this.btnAddToCart) {
       this.btnAddToCart.addEventListener("click", () => {
         this.btnAddToCart.querySelector(".loading-spinner").classList.remove("visibility-hidden")
-        handleItemOnCart(newProduct, 'add')
+        handleItemOnCart(newProduct, 'add');
+        cartElem.classList.add("cart-opened");
       });
     }
 
@@ -112,12 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   cartOpenBtn.addEventListener('click', () => {
     cartElem.classList.add("cart-opened")
-    document.body.classList.add("no-scroll");
   });
   
   cartCloseBtn.addEventListener('click', () => {
     cartElem.classList.remove("cart-opened")
-    document.body.classList.add("no-scroll");
   });
 
   toggleCartVisibility(isCartEmpty);

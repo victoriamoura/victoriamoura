@@ -75,10 +75,11 @@ header {
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background: #000;
-        color: #fff;
-        font-size: 10px;
+        background: $cor-1;
+        color: $branco;
+        font-size: 12px;
         font-family: $fonte-2;
+        font-weight: bold;
         right: -6px;
         top: 0;
         display: flex;

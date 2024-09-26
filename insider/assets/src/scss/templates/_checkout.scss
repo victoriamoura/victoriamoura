@@ -16,7 +16,7 @@ body {
   }
 
   @media (max-width: 1440px) {
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 1fr 400px;
   }
 
   @media (max-width: 880px) {
@@ -73,21 +73,25 @@ body {
     .cart-content {
       position: sticky;
       top: 0;
-      padding: 24px;
+      padding: 24px 12px;
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
       @media (max-width: 480px) {
-        padding: 16px;
+        padding: 16px 8px;
         padding-bottom: 60px;
       }
 
       h2 {
         text-align: left;
         font-size: 16px;
-        height: 20px;
+        padding: 0 12px;
+
+        @media (max-width: 480px) {
+          padding: 0 6px;
+        }
       }
 
       &__empty {
@@ -113,6 +117,11 @@ body {
       &__list-items {
         height: calc(100% - 124px);
         overflow-y: auto;
+        padding: 12px;
+        
+        @media (max-width: 480px) {
+          padding: 6px;
+        }
 
         .cart-item {
           position: relative;
@@ -127,7 +136,7 @@ body {
             margin-bottom: 16px;
           }
 
-          &[data-sku="brinde"] {
+          &[data-price="0"] {
             .cart-item__infos__quantity,
             .cart-item__infos__price,
             .cart-item__rmv-all {
@@ -207,7 +216,11 @@ body {
               position: absolute;
               left: 100px;
               bottom: 10px;
-              
+  
+              @media (max-width: 480px) {
+                bottom: -1px;
+              }
+
               path {
                 fill: $cor-1;
               }
@@ -221,7 +234,7 @@ body {
               padding-right: 50px;
               display: -webkit-box;
               -webkit-line-clamp: 2;
-              -webkit-box-orient: vertical;  
+              -webkit-box-orient: vertical;
               overflow: hidden;
 
               @media (max-width: 480px) {
@@ -286,17 +299,16 @@ body {
         }
       }
 
-      &__list-items::-webkit-scrollbar {
-        position: relative;
-        right: -10px;
-      }
-
       &__footer {
         height: 124px;
-        padding-top: 24px;
+        padding: 24px 12px 0;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        
+        @media (max-width: 480px) {
+          padding: 16px 6px 0;
+        }
 
         &__shipping {
           width: 100%;
@@ -467,7 +479,7 @@ body {
               color: $preto;
               border: 1px solid $preto;
             }
-            
+
             &.last-units {
               color: $cor-2;
               border: 1px solid $cor-2;
@@ -490,7 +502,7 @@ body {
           padding: 0 12px;
           display: -webkit-box;
           -webkit-line-clamp: 1;
-          -webkit-box-orient: vertical;  
+          -webkit-box-orient: vertical;
           overflow: hidden;
         }
 
@@ -507,18 +519,23 @@ body {
         .btn {
           .loading-spinner {
             margin-left: 12px;
-            
+
             path {
               fill: $branco;
             }
           }
         }
+
         &[disabled] {
           .btn {
             background-color: $cor-05;
             color: $preto;
             cursor: not-allowed;
           }
+        }
+        
+        &[data-price='0'] {
+          display: none;
         }
       }
     }

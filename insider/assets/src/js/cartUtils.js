@@ -29,6 +29,8 @@ export function handleItemOnCart(product, action) {
       if (!cartID && newCartID) {
         localStorage.setItem('cartID', newCartID);
       }
+    
+      addGiftsOnCart()
     })
     .catch(error => {
       console.error('[handleItemOnCart] Erro ao atualizar o carrinho na API:', error);
@@ -65,9 +67,87 @@ export function cartUpdateAPI(products, id) {
     });
 }
 
+// Função para adicionar ou remover brindes do carrinho
+export async function addGiftsOnCart() {
+  const url = `https://us-central1-insider-integrations.cloudfunctions.net/front-end-api-interviews/v1/products/`;
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cartID = localStorage.getItem('cartID');
+  let previousTotalCartValue = parseFloat(localStorage.getItem('previousTotalCartValue')) || 0;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`[addGiftsOnCart] Erro na requisição: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const products = data.data;
+    const zeroPriceProducts = products.filter(product => product.sku.price === 0);
+    if (zeroPriceProducts.length === 0) {
+      return;
+    }
+
+    let totalCartValue = 0;
+    for (const item of cart) {
+      const productDetails = products.find(product => product.sku.id === item.sku);
+      if (productDetails) {
+        totalCartValue += productDetails.sku.price * item.quantity;
+      }
+    }
+
+    let cartChanged = false;
+    if (totalCartValue !== previousTotalCartValue) {
+      if (totalCartValue > 250) {
+        zeroPriceProducts.forEach(giftProduct => {
+          const existingGift = cart.find(item => item.sku === giftProduct.sku.id);
+          if (!existingGift) {
+            cart.push({
+              product: giftProduct.id,
+              sku: giftProduct.sku.id,
+              quantity: 1,
+              isGift: true
+            });
+            cartChanged = true;
+          }
+        });
+      } else {
+        const newCart = cart.filter(item => !item.isGift);
+        if (newCart.length !== cart.length) {
+          cart = newCart;
+          cartChanged = true;
+        }
+      }
+      localStorage.setItem('previousTotalCartValue', totalCartValue);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    if (cartChanged) {
+      const productsToSend = {
+        products: cart.map(item => ({
+          product: item.product,
+          sku: item.sku,
+          quantity: item.quantity
+        }))
+      };
+      await cartUpdateAPI(productsToSend, cartID);
+    }
+
+  } catch (error) {
+    console.error('[addGiftsOnCart] Erro ao buscar e adicionar produtos ao carrinho:', error);
+  }
+}
+
+
 // Atualiza carrinho na UI
 export function cartUpdateUI(cart) {
-  const cartDrawer = document.querySelector('cart-side');
+  const cartDrawer = document.querySelector('.js-cart');
   const cartBubble = document.querySelector('.js-cart-bubble');
   const cartItemsElem = cartDrawer.querySelector('.js-cart-items');
   const cartItems = cart.products;
@@ -76,6 +156,7 @@ export function cartUpdateUI(cart) {
   cartBubble && (cartBubble.textContent = cart.skus_quantity);
   cartItemsElem.innerHTML = '';
   cartItems.forEach(item => {
+    const showTag = item.sku.price == 0 ? 'show-gift' : 'visibility-hidden'
     cartItemsElem.innerHTML += `
       <product-module
         data-product="${item.product.id}"
@@ -94,6 +175,7 @@ export function cartUpdateUI(cart) {
             <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z" />
           </svg>
           <h4 class="cart-item__infos__name">${item.product.name}</h4>
+          <p class="cart-item__infos__brinde ${showTag}">brinde</p>
           <p class="cart-item__infos__price">
             ${Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(item.price)}
           </p>
