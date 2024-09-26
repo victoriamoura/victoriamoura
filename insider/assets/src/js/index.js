@@ -121,21 +121,22 @@ document.addEventListener('DOMContentLoaded', () => {
     cartElem.classList.remove("cart-opened")
   });
 
+  checkoutBtn.addEventListener('click', async () => {
+    const spinner = checkoutBtn.querySelector(".loading-spinner");
+    spinner.classList.remove("visibility-hidden");
+    const deleteSuccess = await cartDeleteAPI(cartID);
+  
+    if (deleteSuccess) {
+      modalSuccess.classList.remove("visibility-hidden");
+      localStorage.clear();
+    } else {
+      console.error('[toggleCartVisibility] Erro ao finalizar a compra. Não foi possível deletar o carrinho.');
+      modalError.classList.remove("visibility-hidden")
+    }
+  });
+
   toggleCartVisibility(isCartEmpty);
   if (!isCartEmpty) {
     cartRecovery(cartID);
-    checkoutBtn.addEventListener('click', async () => {
-      const spinner = checkoutBtn.querySelector(".loading-spinner");
-      spinner.classList.remove("visibility-hidden");
-      const deleteSuccess = await cartDeleteAPI(cartID);
-    
-      if (deleteSuccess) {
-        modalSuccess.classList.remove("visibility-hidden");
-        localStorage.clear();
-      } else {
-        console.error('[toggleCartVisibility] Erro ao finalizar a compra. Não foi possível deletar o carrinho.');
-        modalError.classList.remove("visibility-hidden")
-      }
-    });
   }
 });
