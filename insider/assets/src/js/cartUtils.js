@@ -43,6 +43,12 @@ export async function addGiftsOnCart() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   let cartID = localStorage.getItem('cartID');
   let previousTotalCartValue = parseFloat(localStorage.getItem('previousTotalCartValue')) || 0;
+  const checkoutBtn = document.querySelector(".js-cart-btn");
+  checkoutBtn.addEventListener('click', async () => {
+    const spinner = checkoutBtn.querySelector(".loading-spinner");
+    spinner.classList.remove("visibility-hidden");
+    cartDeleteAPI(cartID);
+  });
 
   try {
     const response = await fetch(url, {
@@ -321,7 +327,7 @@ export function getCartsAPI() {
 export function cartDeleteAPI(id) {
   const url = `https://us-central1-insider-integrations.cloudfunctions.net/front-end-api-interviews/v1/carts/${id}`;
 
-  return fetch(url, {
+  fetch(url, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -331,11 +337,14 @@ export function cartDeleteAPI(id) {
       if (!response.ok) {
         throw new Error(`[cartDeleteAPI] Erro ao deletar carrinho com ID ${id}`);
       }
-      return true;
+      const modalSuccess = document.querySelector(".js-modal-order-success");
+      modalSuccess.classList.remove("visibility-hidden");
+      localStorage.clear();
     })
     .catch(error => {
+      const modalError = document.querySelector(".js-modal-order-error");
+      modalError.classList.remove("visibility-hidden") 
       console.error('[cartDeleteAPI] Erro ao deletar carrinho:', error);
-      return false; 
     });
 }
 
