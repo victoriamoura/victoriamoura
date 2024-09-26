@@ -572,13 +572,12 @@ header .announcement-bar p {
 
 .home {
   width: 100%;
-  height: 100vh;
 }
 .home .section-intro {
   background-image: url("../img/background-section.png");
   background-position: center;
   background-size: cover;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
