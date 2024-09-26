@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cart = JSON.parse(localStorage.getItem('cart'));
   const cartID = localStorage.getItem('cartID');
   const cartCloseBtn = document.querySelector(".js-cart-close");
+  const checkoutBtn = document.querySelector(".js-cart-btn");
   const isCartEmpty = !cartID || cartID.length === 0 || !cart || typeof cart !== 'object' || (Array.isArray(cart) && cart.length === 0);
   
   closeModalButtons.forEach(function(button) {
@@ -116,6 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   cartCloseBtn.addEventListener('click', () => {
     cartElem.classList.remove("cart-opened")
+  });
+
+  checkoutBtn.addEventListener('click', async () => {
+    const spinner = checkoutBtn.querySelector(".loading-spinner");
+    spinner.classList.remove("visibility-hidden");
+    let cartID = localStorage.getItem('cartID');
+    cartDeleteAPI(cartID);
   });
 
   toggleCartVisibility(isCartEmpty);

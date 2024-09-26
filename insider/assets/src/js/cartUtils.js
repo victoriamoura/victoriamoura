@@ -43,12 +43,6 @@ export async function addGiftsOnCart() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   let cartID = localStorage.getItem('cartID');
   let previousTotalCartValue = parseFloat(localStorage.getItem('previousTotalCartValue')) || 0;
-  const checkoutBtn = document.querySelector(".js-cart-btn");
-  checkoutBtn.addEventListener('click', async () => {
-    const spinner = checkoutBtn.querySelector(".loading-spinner");
-    spinner.classList.remove("visibility-hidden");
-    cartDeleteAPI(cartID);
-  });
 
   try {
     const response = await fetch(url, {
