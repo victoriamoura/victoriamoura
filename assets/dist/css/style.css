@@ -572,6 +572,7 @@ header .announcement-bar p {
 
 .home {
   width: 100%;
+  background: #000000;
 }
 .home .section-intro {
   background-image: url("../img/background-section.png");
