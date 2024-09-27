@@ -48,21 +48,31 @@
       @include breakpoint($tablet-l) {
         gap: 24px;
       }
+
       @include breakpoint($tablet-s) {
         gap: 18px;
       }
 
       .col {
-        &:first {
+        &:first-child {
+          order: 2;
+        }
+
+        &:last-child {
+          order: 1;
           width: 380px;
         }
 
         @include breakpoint($desktop-s) {
-          width: 100%;
           text-align: center;
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
+
+          &:first-child,
+          &:last-child {
+            width: 100%;
+          }
         }
 
         .thumb {

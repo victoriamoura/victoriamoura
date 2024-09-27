@@ -625,16 +625,22 @@ header .announcement-bar p {
     gap: 18px;
   }
 }
-.home .section-intro .layout .col:first {
+.home .section-intro .layout .col:first-child {
+  order: 2;
+}
+.home .section-intro .layout .col:last-child {
+  order: 1;
   width: 380px;
 }
 @media (max-width: 1365px) {
   .home .section-intro .layout .col {
-    width: 100%;
     text-align: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+  }
+  .home .section-intro .layout .col:first-child, .home .section-intro .layout .col:last-child {
+    width: 100%;
   }
 }
 .home .section-intro .layout .col .thumb {
