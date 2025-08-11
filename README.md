@@ -7,7 +7,7 @@ Hello, how are you? 😊
 
 First of all, glad you're here! I'm do happy to have you on my profile! Let me introduce myself a little.... 🙋‍♀️
 
-My name is Victoria, Vic for friends! I'm 30 years old, I'm a Front End Software Developer. I work in technology since 2012, the first year in infrastructure and the rest in development. Now a days I'm Shopify Developer. 💻
+I`m Victoria, Vic for friends! I'm 32 years old, I'm a Front End Software Developer. I work in technology since 2012, the first year in infrastructure and the rest in development. Now a days I'm Shopify Developer. 💻
 
 I worked in large marketing and advertising agencies in Espírito Santo (BRA), being part of web and technology teams, where besides the growth in the area I also had contact with various tools and methodologies. 🕹
 
